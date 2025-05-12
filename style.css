@@ -25,14 +25,12 @@ body {
     font-size: 1rem;
     min-height: 100vh;
     background: var(--gradient-light);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 2rem;
-    background-image: url('/micaelngoma-Challenge-base-apparel-coming-soon-master/images/bg-pattern-desktop.jpg');
+    background-image: url('/micaelngoma-Challenge-base-apparel-coming-soon-master/bg-pattern-desktop.svg');
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
 }
 
 main {
@@ -40,18 +38,17 @@ main {
     flex-direction: column;
     max-width: 1440px;
     width: 100%;
-    flex: 1; /* Allow main to take up remaining vertical space */
+    flex: 1;
 }
 
 .left-side {
     text-align: center;
-    padding-bottom: 2rem;
+    padding: 2rem;
 }
 
 .logo {
-    width: 100px;
+    width: 120px;
     margin-bottom: 2rem;
-    align-self: center;
 }
 
 h1 {
@@ -79,6 +76,7 @@ h1 {
     display: flex;
     width: 100%;
     max-width: 400px;
+    margin: 0 auto;
 }
 
 .input-container {
@@ -168,42 +166,33 @@ button:hover {
 }
 
 footer {
-    margin-top: 3rem;
     text-align: center;
-}
-
-.attribution {
     font-size: 0.8rem;
     color: var(--dark-grayish-red);
+    padding: 1rem 0;
 }
 
-.attribution a {
+footer a {
     color: var(--soft-red);
+    text-decoration: none;
 }
 
-/* Desktop Styles */
 @media (min-width: 768px) {
-    body {
-        align-items: flex-start;
-        padding: 3rem 5%;
-    }
-
     main {
         flex-direction: row;
         align-items: center;
-        min-height: calc(100vh - 6rem); /* Adjust for padding */
         justify-content: space-between;
+        min-height: calc(100vh - 4rem);
     }
 
     .left-side {
         text-align: left;
-        padding-bottom: 0;
+        padding: 5% 5% 5% 10%;
         max-width: 45%;
     }
 
     .logo {
         margin-bottom: 3rem;
-        align-self: flex-start;
         width: 150px;
     }
 
@@ -211,10 +200,6 @@ footer {
         font-size: 4rem;
         letter-spacing: 1rem;
         margin-bottom: 1.5rem;
-    }
-
-    .light-text {
-        display: inline; /* Keep "WE'RE" and "COMING SOON" on separate lines */
     }
 
     .left-side p {
@@ -227,38 +212,17 @@ footer {
         max-width: 100%;
     }
 
-    .input-container {
-        padding-right: 0.5rem;
-    }
-
-    #email {
-        padding: 1.2rem 2rem;
-        border-radius: 25px 0 0 25px;
-    }
-
-    button {
-        padding: 1.2rem 2.5rem;
-    }
-
     .right-side {
-        width: 55%;
-        min-height: auto;
-    }
-
-    .right-side picture {
-        height: auto;
+        width: 50%;
     }
 
     .right-side img {
         width: 100%;
         height: auto;
-        display: block;
     }
 
     footer {
-        position: absolute;
-        bottom: 1rem;
-        left: 50%;
-        transform: translateX(-50%);
+        position: relative;
+        margin-top: 2rem;
     }
 }
