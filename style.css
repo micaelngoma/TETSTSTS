@@ -1,248 +1,132 @@
-:root {
-    --desaturated-red: hsl(0, 36%, 70%);
-    --soft-red: hsl(0, 93%, 68%);
-    --dark-grayish-red: hsl(0, 6%, 24%);
-    --white: hsl(0, 0%, 100%);
-    --light-pink: hsl(0, 100%, 98%);
-
-    --gradient-light: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
-    --gradient-soft: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
-
-    --font-family: 'Josefin Sans', sans-serif;
-    --font-weight-light: 300;
-    --font-weight-regular: 400;
-    --font-weight-semibold: 600;
-}
-
-*, *::before, *::after {
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    font-family: var(--font-family);
-    font-weight: var(--font-weight-regular);
-    font-size: 1rem;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background: var(--gradient-light);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+  font-family: 'Josefin Sans', sans-serif;
+  min-height: 100vh;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    width: 100%;
+.container {
+  display: flex;
+  flex-direction: column;
 }
 
-.left-side {
-    text-align: center;
-    padding: 2rem;
+.hero-image {
+  background-image: url('hero-desktop.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 250px;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background-image: url('bg-pattern-desktop.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
 }
 
 .logo {
-    width: 100px;
-    margin-bottom: 2rem;
+  margin-bottom: 40px;
 }
 
-h1 {
-    font-size: 2.5rem;
-    font-weight: var(--font-weight-semibold);
-    letter-spacing: 0.5rem;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-    color: var(--dark-grayish-red);
+.heading {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #ce9797;
 }
 
-.light-text {
-    font-weight: var(--font-weight-light);
-    color: var(--desaturated-red);
-    display: block;
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #423a3a;
 }
 
-.left-side p {
-    color: var(--desaturated-red);
-    line-height: 1.6;
-    margin-bottom: 2rem;
+.description {
+  color: #ce9797;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 30px;
 }
 
-#email-form {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
+.form {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
 }
 
-.input-container {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    border: 1px solid var(--desaturated-red);
-    border-radius: 25px;
-    padding-right: 1rem;
-    position: relative;
+.form input {
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 30px;
+  border: 1px solid #ce9797;
+  font-size: 1rem;
+  color: #423a3a;
+  outline: none;
 }
 
-.input-container.error {
-    border-color: var(--soft-red);
+.form input.invalid {
+  border-color: #f96262;
+  background-image: url('icon-error.svg');
+  background-repeat: no-repeat;
+  background-position: right 60px center;
 }
 
-#email {
-    flex-grow: 1;
-    padding: 1rem 1.5rem;
-    border: none;
-    outline: none;
-    border-radius: 25px;
-    font-family: var(--font-family);
-    color: var(--dark-grayish-red);
-    background-color: transparent;
-}
-
-#email::placeholder {
-    color: var(--desaturated-red);
-}
-
-.error-icon {
-    position: absolute;
-    right: 1.5rem;
-    display: none;
-}
-
-.input-container.error .error-icon {
-    display: block;
-}
-
-button {
-    background: var(--soft-red);
-    color: var(--white);
-    border: none;
-    border-radius: 25px;
-    padding: 1rem 2rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-family);
-    font-size: 1rem;
-}
-
-button:hover {
-    opacity: 0.8;
-}
-
-.submit-arrow {
-    margin-right: 0.5rem;
-    width: 16px;
-    height: 16px;
+.form button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 70px;
+  background: linear-gradient(135deg, #f8bfbf, #ee8c8c);
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  outline: none;
 }
 
 .error-message {
-    color: var(--soft-red);
-    font-size: 0.8rem;
-    font-style: italic;
-    margin-top: 0.5rem;
+  color: #f96262;
+  font-size: 0.75rem;
+  text-align: left;
+  margin-top: 10px;
+  padding-left: 20px;
+  display: none;
+}
+
+@media(min-width: 768px) {
+  .container {
+    flex-direction: row;
+    height: 100vh;
+  }
+
+  .hero-image {
+    background-image: url('hero-desktop.jpg');
+    width: 50%;
+    height: 100%;
+  }
+
+  .content {
+    width: 50%;
     text-align: left;
-    padding-left: 1rem;
-}
+    padding: 100px 80px;
+    background-position: top left;
+  }
 
-.right-side {
-    width: 100%;
-    margin-top: 2rem;
-}
-
-.right-side picture,
-.right-side img {
-    width: 100%;
-    display: block;
-}
-
-footer {
-    margin-top: auto;
-    text-align: center;
-    padding: 1rem 0;
-    background: transparent;
-}
-
-.attribution {
-    font-size: 0.8rem;
-    color: var(--dark-grayish-red);
-}
-
-.attribution a {
-    color: var(--soft-red);
-}
-
-@media (min-width: 768px) {
-    body {
-        background: url('/micaelngoma-Challenge-base-apparel-coming-soon-master/bg-pattern-desktop.jpg'), var(--gradient-light);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-    }
-
-    main {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        padding: 3rem 5%;
-    }
-
-    .left-side {
-        text-align: left;
-        max-width: 45%;
-    }
-
-    .logo {
-        width: 150px;
-        margin-bottom: 3rem;
-    }
-
-    h1 {
-        font-size: 4rem;
-        letter-spacing: 1rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .left-side p {
-        font-size: 1.2rem;
-        margin-bottom: 2.5rem;
-        max-width: 400px;
-    }
-
-    #email-form {
-        margin: 0;
-    }
-
-    .input-container {
-        padding-right: 0.5rem;
-    }
-
-    #email {
-        padding: 1.2rem 2rem;
-    }
-
-    button {
-        padding: 1.2rem 2.5rem;
-    }
-
-    .right-side {
-        width: 50%;
-        margin-top: 0;
-    }
-
-    .right-side img {
-        height: auto;
-    }
-
-    footer {
-        position: absolute;
-        bottom: 1rem;
-        left: 50%;
-        transform: translateX(-50%);
-    }
+  .form input {
+    padding-right: 90px;
+  }
 }
