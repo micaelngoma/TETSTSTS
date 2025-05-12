@@ -1,132 +1,264 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+    --desaturated-red: hsl(0, 36%, 70%);
+    --soft-red: hsl(0, 93%, 68%);
+    --dark-grayish-red: hsl(0, 6%, 24%);
+    --white: hsl(0, 0%, 100%);
+    --light-pink: hsl(0, 100%, 98%);
+    --gradient-light: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+    --gradient-soft: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+    --font-family: 'Josefin Sans', sans-serif;
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-semibold: 600;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Josefin Sans', sans-serif;
-  min-height: 100vh;
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
+    margin: 0;
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-regular);
+    font-size: 1rem;
+    min-height: 100vh;
+    background: var(--gradient-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem;
+    background-image: url('/micaelngoma-Challenge-base-apparel-coming-soon-master/images/bg-pattern-desktop.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
+main {
+    display: flex;
+    flex-direction: column;
+    max-width: 1440px;
+    width: 100%;
+    flex: 1; /* Allow main to take up remaining vertical space */
 }
 
-.hero-image {
-  background-image: url('hero-desktop.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 250px;
-  width: 100%;
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 20px;
-  background-image: url('bg-pattern-desktop.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  text-align: center;
+.left-side {
+    text-align: center;
+    padding-bottom: 2rem;
 }
 
 .logo {
-  margin-bottom: 40px;
+    width: 100px;
+    margin-bottom: 2rem;
+    align-self: center;
 }
 
-.heading {
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  color: #ce9797;
+h1 {
+    font-size: 2.5rem;
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    color: var(--dark-grayish-red);
 }
 
-.title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: #423a3a;
+.light-text {
+    font-weight: var(--font-weight-light);
+    color: var(--desaturated-red);
+    display: block;
 }
 
-.description {
-  color: #ce9797;
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 30px;
+.left-side p {
+    color: var(--desaturated-red);
+    line-height: 1.6;
+    margin-bottom: 2rem;
 }
 
-.form {
-  position: relative;
-  width: 100%;
-  max-width: 400px;
+#email-form {
+    display: flex;
+    width: 100%;
+    max-width: 400px;
 }
 
-.form input {
-  width: 100%;
-  padding: 15px 20px;
-  border-radius: 30px;
-  border: 1px solid #ce9797;
-  font-size: 1rem;
-  color: #423a3a;
-  outline: none;
+.input-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--desaturated-red);
+    border-radius: 25px;
+    margin-right: 1rem;
+    padding-right: 1rem;
 }
 
-.form input.invalid {
-  border-color: #f96262;
-  background-image: url('icon-error.svg');
-  background-repeat: no-repeat;
-  background-position: right 60px center;
+.input-container.error {
+    border-color: var(--soft-red);
 }
 
-.form button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 70px;
-  background: linear-gradient(135deg, #f8bfbf, #ee8c8c);
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-  outline: none;
+#email {
+    flex-grow: 1;
+    padding: 1rem 1.5rem;
+    border: none;
+    outline: none;
+    border-radius: 25px 0 0 25px;
+    font-family: var(--font-family);
+    color: var(--dark-grayish-red);
+}
+
+#email::placeholder {
+    color: var(--desaturated-red);
+}
+
+.error-icon {
+    margin-left: auto;
+    padding-right: 1.5rem;
+    display: none;
+}
+
+.input-container.error .error-icon {
+    display: block;
+}
+
+button {
+    background: var(--gradient-soft);
+    color: var(--white);
+    border: none;
+    border-radius: 25px;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-family);
+    font-size: 1rem;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.submit-arrow {
+    margin-right: 0.5rem;
+    width: 16px;
+    height: 16px;
 }
 
 .error-message {
-  color: #f96262;
-  font-size: 0.75rem;
-  text-align: left;
-  margin-top: 10px;
-  padding-left: 20px;
-  display: none;
+    color: var(--soft-red);
+    font-size: 0.8rem;
+    font-style: italic;
+    margin-top: 0.5rem;
+    text-align: left;
+    padding-left: 1rem;
 }
 
-@media(min-width: 768px) {
-  .container {
-    flex-direction: row;
-    height: 100vh;
-  }
+.right-side {
+    width: 100%;
+}
 
-  .hero-image {
-    background-image: url('hero-desktop.jpg');
-    width: 50%;
-    height: 100%;
-  }
+.right-side picture {
+    display: block;
+    width: 100%;
+}
 
-  .content {
-    width: 50%;
-    text-align: left;
-    padding: 100px 80px;
-    background-position: top left;
-  }
+.right-side img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
 
-  .form input {
-    padding-right: 90px;
-  }
+footer {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.attribution {
+    font-size: 0.8rem;
+    color: var(--dark-grayish-red);
+}
+
+.attribution a {
+    color: var(--soft-red);
+}
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+    body {
+        align-items: flex-start;
+        padding: 3rem 5%;
+    }
+
+    main {
+        flex-direction: row;
+        align-items: center;
+        min-height: calc(100vh - 6rem); /* Adjust for padding */
+        justify-content: space-between;
+    }
+
+    .left-side {
+        text-align: left;
+        padding-bottom: 0;
+        max-width: 45%;
+    }
+
+    .logo {
+        margin-bottom: 3rem;
+        align-self: flex-start;
+        width: 150px;
+    }
+
+    h1 {
+        font-size: 4rem;
+        letter-spacing: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .light-text {
+        display: inline; /* Keep "WE'RE" and "COMING SOON" on separate lines */
+    }
+
+    .left-side p {
+        font-size: 1.2rem;
+        margin-bottom: 2.5rem;
+        max-width: 400px;
+    }
+
+    #email-form {
+        max-width: 100%;
+    }
+
+    .input-container {
+        padding-right: 0.5rem;
+    }
+
+    #email {
+        padding: 1.2rem 2rem;
+        border-radius: 25px 0 0 25px;
+    }
+
+    button {
+        padding: 1.2rem 2.5rem;
+    }
+
+    .right-side {
+        width: 55%;
+        min-height: auto;
+    }
+
+    .right-side picture {
+        height: auto;
+    }
+
+    .right-side img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
