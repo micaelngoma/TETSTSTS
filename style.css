@@ -1,150 +1,56 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Base Apparel Coming Soon</title>
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <img src="logo.svg" alt="Base Apparel" class="logo" />
+  </header>
 
-body {
-  font-family: 'Josefin Sans', sans-serif;
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
+  <div class="container">
+    <div class="left-content">
+      <h1 class="heading">We're</h1>
+      <h2 class="title">Coming Soon</h2>
+      <p class="description">Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
+    </div>
+    <div class="hero-image"></div>
+  </div>
 
-.header {
-  padding: 20px 40px;
-  background-color: #fff;
-  z-index: 10;
-}
+  <footer class="footer">
+    <form class="form">
+      <input type="email" id="email" placeholder="Email Address">
+      <button type="submit"><img src="icon-arrow.svg" alt="Submit"></button>
+      <div class="error-message">Please provide a valid email</div>
+    </form>
+  </footer>
 
-.logo {
-  width: 150px;
-}
+  <script>
+    const emailInput = document.getElementById('email');
+    const formButton = document.querySelector('.form button');
+    const errorMessage = document.querySelector('.error-message');
 
-.container {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
+    formButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      const emailValue = emailInput.value;
+      if (!validateEmail(emailValue)) {
+        emailInput.classList.add('invalid');
+        errorMessage.style.display = 'block';
+      } else {
+        emailInput.classList.remove('invalid');
+        errorMessage.style.display = 'none';
+        alert('Thank you for subscribing!');
+      }
+    });
 
-.hero-image {
-  background-image: url('hero-desktop.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 300px;
-  width: 100%;
-}
-
-.left-content {
-  background-image: url('bg-pattern-desktop.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.heading {
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
-  font-size: 1.5rem;
-  color: #ce9797;
-  margin-bottom: 20px;
-}
-
-.title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: #423a3a;
-}
-
-.description {
-  color: #ce9797;
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 30px;
-}
-
-.footer {
-  padding: 30px 20px;
-  background-color: #fff;
-  text-align: center;
-}
-
-.form {
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.form input {
-  width: 100%;
-  padding: 15px 20px;
-  border-radius: 30px;
-  border: 1px solid #ce9797;
-  font-size: 1rem;
-  outline: none;
-}
-
-.form input.invalid {
-  border-color: #f96262;
-  background-image: url('icon-error.svg');
-  background-repeat: no-repeat;
-  background-position: right 60px center;
-}
-
-.form button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 70px;
-  background: linear-gradient(135deg, #f8bfbf, #ee8c8c);
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.error-message {
-  color: #f96262;
-  font-size: 0.75rem;
-  text-align: left;
-  margin-top: 10px;
-  padding-left: 20px;
-  display: none;
-}
-
-@media(min-width: 768px) {
-  .container {
-    flex-direction: row;
-    height: auto;
-  }
-
-  .hero-image {
-    order: 2;
-    background-image: url('hero-desktop.jpg');
-    width: 40%;
-    height: auto;
-    min-height: 100%;
-  }
-
-  .left-content {
-    order: 1;
-    width: 60%;
-    padding: 120px 100px;
-    text-align: left;
-  }
-
-  .form input {
-    padding-right: 90px;
-  }
-
-  .footer {
-    padding: 40px 20px;
-  }
-}
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(String(email).toLowerCase());
+    }
+  </script>
+</body>
+</html>
