@@ -8,20 +8,26 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header class="header">
+    <img src="logo.svg" alt="Base Apparel" class="logo" />
+  </header>
+
   <div class="container">
-    <div class="hero-image"></div>
-    <div class="content">
-      <img src="logo.svg" alt="Base Apparel" class="logo" width="150"/>
+    <div class="left-content">
       <h1 class="heading">We're</h1>
       <h2 class="title">Coming Soon</h2>
       <p class="description">Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
-      <form class="form">
-        <input type="email" id="email" placeholder="Email Address">
-        <button type="submit"><img src="icon-arrow.svg" alt="Submit"></button>
-        <div class="error-message">Please provide a valid email</div>
-      </form>
     </div>
+    <div class="hero-image"></div>
   </div>
+
+  <footer class="footer">
+    <form class="form">
+      <input type="email" id="email" placeholder="Email Address">
+      <button type="submit"><img src="icon-arrow.svg" alt="Submit"></button>
+      <div class="error-message">Please provide a valid email</div>
+    </form>
+  </footer>
 
   <script>
     const emailInput = document.getElementById('email');
