@@ -6,8 +6,10 @@
 
 body {
   font-family: 'Josefin Sans', sans-serif;
-  background-color: #fff;
   min-height: 100vh;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
@@ -23,25 +25,27 @@ body {
   width: 100%;
 }
 
-.left-content {
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
   background-image: url('bg-pattern-desktop.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 40px 20px;
   text-align: center;
 }
 
 .logo {
   margin-bottom: 40px;
-  width: 150px;
 }
 
 .heading {
   text-transform: uppercase;
   letter-spacing: 0.3em;
   font-size: 1.5rem;
-  color: #ce9797;
   margin-bottom: 20px;
+  color: #ce9797;
 }
 
 .title {
@@ -62,7 +66,6 @@ body {
   position: relative;
   width: 100%;
   max-width: 400px;
-  margin: 0 auto;
 }
 
 .form input {
@@ -71,6 +74,7 @@ body {
   border-radius: 30px;
   border: 1px solid #ce9797;
   font-size: 1rem;
+  color: #423a3a;
   outline: none;
 }
 
@@ -91,9 +95,7 @@ body {
   border-radius: 30px;
   border: none;
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  outline: none;
 }
 
 .error-message {
@@ -112,17 +114,15 @@ body {
   }
 
   .hero-image {
-    order: 2;
     background-image: url('hero-desktop.jpg');
     width: 50%;
     height: 100%;
   }
 
-  .left-content {
-    order: 1;
+  .content {
     width: 50%;
-    padding: 100px 80px;
     text-align: left;
+    padding: 100px 80px;
     background-position: top left;
   }
 
