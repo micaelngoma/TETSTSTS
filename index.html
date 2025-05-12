@@ -5,7 +5,142 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Base Apparel Coming Soon</title>
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Josefin Sans', sans-serif;
+      min-height: 100vh;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-image {
+      background-image: url('hero-desktop.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 250px;
+      width: 100%;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      background-image: url('bg-pattern-desktop.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      text-align: center;
+    }
+
+    .logo {
+      margin-bottom: 40px;
+    }
+
+    .heading {
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #ce9797;
+    }
+
+    .title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #423a3a;
+    }
+
+    .description {
+      color: #ce9797;
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 30px;
+    }
+
+    .form {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .form input {
+      width: 100%;
+      padding: 15px 20px;
+      border-radius: 30px;
+      border: 1px solid #ce9797;
+      font-size: 1rem;
+      color: #423a3a;
+      outline: none;
+    }
+
+    .form input.invalid {
+      border-color: #f96262;
+      background-image: url('icon-error.svg');
+      background-repeat: no-repeat;
+      background-position: right 60px center;
+    }
+
+    .form button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 70px;
+      background: linear-gradient(135deg, #f8bfbf, #ee8c8c);
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .error-message {
+      color: #f96262;
+      font-size: 0.75rem;
+      text-align: left;
+      margin-top: 10px;
+      padding-left: 20px;
+      display: none;
+    }
+
+    /* Desktop layout */
+    @media(min-width: 768px) {
+      .container {
+        flex-direction: row;
+        height: 100vh;
+      }
+
+      .hero-image {
+        background-image: url('hero-desktop.jpg');
+        width: 50%;
+        height: 100%;
+      }
+
+      .content {
+        width: 50%;
+        text-align: left;
+        padding: 100px 80px;
+        background-position: top left;
+      }
+
+      .form input {
+        padding-right: 90px;
+      }
+    }
+
+  </style>
 </head>
 <body>
   <div class="container">
@@ -15,11 +150,11 @@
       <h1 class="heading">We're</h1>
       <h2 class="title">Coming Soon</h2>
       <p class="description">Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
-      <form class="form">
+      <div class="form">
         <input type="email" id="email" placeholder="Email Address">
         <button type="submit"><img src="icon-arrow.svg" alt="Submit"></button>
         <div class="error-message">Please provide a valid email</div>
-      </form>
+      </div>
     </div>
   </div>
 
