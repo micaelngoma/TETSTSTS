@@ -6,15 +6,24 @@
 
 body {
   font-family: 'Josefin Sans', sans-serif;
-  min-height: 100vh;
   background-color: #fff;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.header {
+  padding: 20px;
+}
+
+.logo {
+  width: 150px;
 }
 
 .container {
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 .hero-image {
@@ -25,27 +34,20 @@ body {
   width: 100%;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 20px;
+.left-content {
   background-image: url('bg-pattern-desktop.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  padding: 40px 20px;
   text-align: center;
-}
-
-.logo {
-  margin-bottom: 40px;
 }
 
 .heading {
   text-transform: uppercase;
   letter-spacing: 0.3em;
   font-size: 1.5rem;
-  margin-bottom: 20px;
   color: #ce9797;
+  margin-bottom: 20px;
 }
 
 .title {
@@ -62,10 +64,17 @@ body {
   margin-bottom: 30px;
 }
 
+.footer {
+  padding: 30px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
 .form {
   position: relative;
   width: 100%;
   max-width: 400px;
+  margin: 0 auto;
 }
 
 .form input {
@@ -74,7 +83,6 @@ body {
   border-radius: 30px;
   border: 1px solid #ce9797;
   font-size: 1rem;
-  color: #423a3a;
   outline: none;
 }
 
@@ -95,7 +103,9 @@ body {
   border-radius: 30px;
   border: none;
   cursor: pointer;
-  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .error-message {
@@ -110,23 +120,30 @@ body {
 @media(min-width: 768px) {
   .container {
     flex-direction: row;
-    height: 100vh;
+    flex: 1;
+    height: 100%;
   }
 
   .hero-image {
+    order: 2;
     background-image: url('hero-desktop.jpg');
     width: 50%;
     height: 100%;
   }
 
-  .content {
+  .left-content {
+    order: 1;
     width: 50%;
-    text-align: left;
     padding: 100px 80px;
+    text-align: left;
     background-position: top left;
   }
 
   .form input {
     padding-right: 90px;
+  }
+
+  .footer {
+    padding: 40px 20px;
   }
 }
