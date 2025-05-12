@@ -1,85 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="/micaelngoma-Challenge-base-apparel-coming-soon-master/favicon-32x32.png">
-    <title>Frontend Mentor | Base Apparel coming soon page</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Base Apparel Coming Soon</title>
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main>
-        <div class="left-side">
-            <img class="logo" src="/micaelngoma-Challenge-base-apparel-coming-soon-master/logo.svg" alt="Base Apparel Logo">
-            <h1>
-                <span class="light-text">WE'RE</span>
-                COMING SOON
-            </h1>
-            <p>
-                Hello fellow shoppers! We're currently building our new fashion store.
-                Add your email below to stay up-to-date with announcements and our launch deals.
-            </p>
-            <form id="email-form">
-                <div class="input-container">
-                    <input type="email" id="email" placeholder="Email Address">
-                    <img class="error-icon" src="/micaelngoma-Challenge-base-apparel-coming-soon-master/icon-error.svg" alt="Error">
-                </div>
-                <button type="submit">
-                    <img src="/micaelngoma-Challenge-base-apparel-coming-soon-master/icon-arrow.svg" alt="Submit" class="submit-arrow">
-                    <span>Submit</span>
-                </button>
-                <span class="error-message"></span>
-            </form>
-        </div>
-        <div class="right-side">
-            <picture>
-                <source media="(min-width: 768px)" srcset="/micaelngoma-Challenge-base-apparel-coming-soon-master/hero-desktop.jpg">
-                <img src="/micaelngoma-Challenge-base-apparel-coming-soon-master/images/hero-mobile.jpg" alt="Fashion Model">
-            </picture>
-        </div>
-    </main>
+  <div class="container">
+    <div class="hero-image"></div>
+    <div class="content">
+      <img src="logo.svg" alt="Base Apparel" class="logo" width="150"/>
+      <h1 class="heading">We're</h1>
+      <h2 class="title">Coming Soon</h2>
+      <p class="description">Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
+      <form class="form">
+        <input type="email" id="email" placeholder="Email Address">
+        <button type="submit"><img src="icon-arrow.svg" alt="Submit"></button>
+        <div class="error-message">Please provide a valid email</div>
+      </form>
+    </div>
+  </div>
 
-    <footer>
-        <p class="attribution">
-            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-            Coded by <a href="#">Your Name Here</a>.
-        </p>
-    </footer>
+  <script>
+    const emailInput = document.getElementById('email');
+    const formButton = document.querySelector('.form button');
+    const errorMessage = document.querySelector('.error-message');
 
-    <script>
-        const form = document.getElementById('email-form');
-        const emailInput = document.getElementById('email');
-        const errorMessage = document.querySelector('.error-message');
-        const errorIcon = document.querySelector('.error-icon');
-        const inputContainer = document.querySelector('.input-container');
+    formButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      const emailValue = emailInput.value;
+      if (!validateEmail(emailValue)) {
+        emailInput.classList.add('invalid');
+        errorMessage.style.display = 'block';
+      } else {
+        emailInput.classList.remove('invalid');
+        errorMessage.style.display = 'none';
+        alert('Thank you for subscribing!');
+      }
+    });
 
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const emailValue = emailInput.value.trim();
-
-            if (emailValue === '') {
-                errorMessage.textContent = 'Please provide an email address';
-                inputContainer.classList.add('error');
-            } else if (!isValidEmail(emailValue)) {
-                errorMessage.textContent = 'Please provide a valid email address';
-                inputContainer.classList.add('error');
-            } else {
-                errorMessage.textContent = '';
-                inputContainer.classList.remove('error');
-                // In a real scenario, you would submit the form data here
-                console.log('Email submitted:', emailValue);
-            }
-        });
-
-        emailInput.addEventListener('input', function() {
-            inputContainer.classList.remove('error');
-            errorMessage.textContent = '';
-        });
-
-        function isValidEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
-    </script>
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(String(email).toLowerCase());
+    }
+  </script>
 </body>
 </html>
